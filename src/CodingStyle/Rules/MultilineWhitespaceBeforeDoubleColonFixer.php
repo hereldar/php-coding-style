@@ -14,8 +14,6 @@ use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
 use SplFileInfo;
 
-use function count;
-
 final class MultilineWhitespaceBeforeDoubleColonFixer extends AbstractFixer implements WhitespacesAwareFixerInterface
 {
     public function getDefinition(): FixerDefinitionInterface
@@ -55,7 +53,7 @@ final class MultilineWhitespaceBeforeDoubleColonFixer extends AbstractFixer impl
     {
         $lineEnding = $this->whitespacesConfig->getLineEnding();
 
-        for ($index = 0, $count = count($tokens); $index < $count; ++$index) {
+        for ($index = 0, $count = \count($tokens); $index < $count; ++$index) {
             if (!$tokens[$index]->isGivenKind(T_DOUBLE_COLON)) {
                 continue;
             }
@@ -65,7 +63,7 @@ final class MultilineWhitespaceBeforeDoubleColonFixer extends AbstractFixer impl
                 continue;
             }
 
-            $newline = new Token([T_WHITESPACE, $lineEnding . $indent]);
+            $newline = new Token([T_WHITESPACE, $lineEnding.$indent]);
 
             $previousIndex = $index - 1;
             $previous = $tokens[$previousIndex];
@@ -86,7 +84,7 @@ final class MultilineWhitespaceBeforeDoubleColonFixer extends AbstractFixer impl
         while (true) {
             $index = $tokens->getNextMeaningfulToken($index);
 
-            if ($index === null) {
+            if (null === $index) {
                 return null;
             }
 

@@ -92,7 +92,6 @@ final class ClarifyingParenthesesAroundComparisonsFixer extends AbstractFixer
          * @var Token $token
          */
         foreach ($tokens as $index => $token) {
-
             if (!$token->isGivenKind(self::TARGET_KINDS)
                 || $token->equalsAny(self::TARGET_TOKENS)) {
                 continue;

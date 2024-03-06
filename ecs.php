@@ -11,7 +11,7 @@ return ECSConfig
         CodingStyle::LIBRARIES,
     ])
     ->withPaths([
-        __DIR__ . '/sets',
-        __DIR__ . '/src',
+        __DIR__.'/sets',
+        __DIR__.'/src',
     ])
     ->withRootFiles();

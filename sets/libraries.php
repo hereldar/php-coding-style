@@ -2,18 +2,21 @@
 
 declare(strict_types=1);
 
-use Hereldar\CodingStyle\Rules\ClarifyingParenthesesAroundComparisonsFixer;
-use Hereldar\CodingStyle\Rules\MultilineWhitespaceBeforeDoubleColonFixer;
+use Hereldar\CodingStyle;
+use PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer;
+use PhpCsFixer\Fixer\Import\GlobalNamespaceImportFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return ECSConfig
     ::configure()
-    ->withPhpCsFixerSets(
-        per: true,
-        php80Migration: true,
-        php80MigrationRisky: true,
+    ->withSets([
+        CodingStyle::PROJECTS,
+    ])
+    ->withConfiguredRule(
+        GlobalNamespaceImportFixer::class,
+        ['import_classes' => true, 'import_constants' => false, 'import_functions' => false]
     )
-    ->withRules([
-        ClarifyingParenthesesAroundComparisonsFixer::class,
-        MultilineWhitespaceBeforeDoubleColonFixer::class,
-    ]);
+    ->withConfiguredRule(
+        YodaStyleFixer::class,
+        ['equal' => true, 'identical' => true, 'less_and_greater' => true],
+    );
