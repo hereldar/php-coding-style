@@ -6,6 +6,6 @@ namespace Hereldar;
 
 final class CodingStyle
 {
-    public const PROJECTS = __DIR__.'/../sets/projects.php';
-    public const LIBRARIES = __DIR__.'/../sets/libraries.php';
+    public const PROJECTS = __DIR__ . '/../sets/projects.php';
+    public const LIBRARIES = __DIR__ . '/../sets/libraries.php';
 }
