@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "symplify/easy-coding-standard": "^12.0"
+        "symplify/easy-coding-standard": "^12.1"
     },
     "autoload": {
         "psr-4": {

@@ -11,7 +11,7 @@ use Symplify\EasyCodingStandard\Config\ECSConfig;
 return ECSConfig
     ::configure()
     ->withSets([
-        CodingStyle::PROJECTS,
+        CodingStyle::BASE,
     ])
     ->withConfiguredRule(
         NativeConstantInvocationFixer::class,

@@ -98,7 +98,7 @@ final class MultilineWhitespaceBeforeDoubleColonFixer extends AbstractFixer impl
                 $previousIndex = $index - 1;
                 $previous = $tokens[$previousIndex];
 
-                if (str_contains($previous->getContent(), "\n")) {
+                if (\str_contains($previous->getContent(), "\n")) {
                     return WhitespacesAnalyzer::detectIndent($tokens, $index);
                 }
             }
