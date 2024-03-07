@@ -8,18 +8,16 @@ Hereldar's Easy Coding Standards configuration
 
 Opinionated linting configuration inspired on [Codely's Coding Style](https://github.com/CodelyTV/php-coding_style-codely).
 
+**Currently under development.**
+
 How to use
 ----------
-
-### Installation
 
 Install the package via Composer:
 
 ```bash
 composer require --dev hereldar/coding-style
 ```
-
-### Configuration
 
 Create a `ecs.php` file in the root of your project:
 
@@ -38,8 +36,6 @@ return ECSConfig
     ])
     ->withRootFiles();
 ```
-
-### Usage
 
 Execute the following command to see the suggested changes:
 
@@ -63,5 +59,3 @@ Checks the code style of your project using:
 - [PER Coding Style](https://www.php-fig.org/per/coding-style/)
 - [Symfony](https://symfony.com/doc/current/contributing/code/standards.html)
 - Some custom rules (you can see them [here](sets)).
-
-**Currently under development.**
