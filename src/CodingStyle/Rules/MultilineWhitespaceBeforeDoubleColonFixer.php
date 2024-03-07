@@ -46,7 +46,7 @@ final class MultilineWhitespaceBeforeDoubleColonFixer extends AbstractFixer impl
 
     public function isCandidate(Tokens $tokens): bool
     {
-        return $tokens->isTokenKindFound(T_DOUBLE_COLON);
+        return $tokens->isTokenKindFound(\T_DOUBLE_COLON);
     }
 
     protected function applyFix(SplFileInfo $file, Tokens $tokens): void
@@ -54,7 +54,7 @@ final class MultilineWhitespaceBeforeDoubleColonFixer extends AbstractFixer impl
         $lineEnding = $this->whitespacesConfig->getLineEnding();
 
         for ($index = 0, $count = \count($tokens); $index < $count; ++$index) {
-            if (!$tokens[$index]->isGivenKind(T_DOUBLE_COLON)) {
+            if (!$tokens[$index]->isGivenKind(\T_DOUBLE_COLON)) {
                 continue;
             }
 
@@ -63,7 +63,7 @@ final class MultilineWhitespaceBeforeDoubleColonFixer extends AbstractFixer impl
                 continue;
             }
 
-            $newline = new Token([T_WHITESPACE, $lineEnding.$indent]);
+            $newline = new Token([\T_WHITESPACE, $lineEnding.$indent]);
 
             $previousIndex = $index - 1;
             $previous = $tokens[$previousIndex];
@@ -90,7 +90,7 @@ final class MultilineWhitespaceBeforeDoubleColonFixer extends AbstractFixer impl
 
             $token = $tokens[$index];
 
-            if ($token->equalsAny([';', ':', '{', '}', ',', [T_CLOSE_TAG]])) {
+            if ($token->equalsAny([';', ':', '{', '}', ',', [\T_CLOSE_TAG]])) {
                 return null;
             }
 

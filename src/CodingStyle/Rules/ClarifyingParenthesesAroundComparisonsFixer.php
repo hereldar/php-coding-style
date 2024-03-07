@@ -16,19 +16,19 @@ use SplFileInfo;
 final class ClarifyingParenthesesAroundComparisonsFixer extends AbstractFixer
 {
     private const TARGET_KINDS = [
-        T_AND_EQUAL,
-        T_COALESCE_EQUAL,
-        T_CONCAT_EQUAL,
-        T_DIV_EQUAL,
-        T_MINUS_EQUAL,
-        T_MOD_EQUAL,
-        T_MUL_EQUAL,
-        T_OR_EQUAL,
-        T_PLUS_EQUAL,
-        T_POW_EQUAL,
-        T_RETURN,
-        T_XOR_EQUAL,
-        T_YIELD,
+        \T_AND_EQUAL,
+        \T_COALESCE_EQUAL,
+        \T_CONCAT_EQUAL,
+        \T_DIV_EQUAL,
+        \T_MINUS_EQUAL,
+        \T_MOD_EQUAL,
+        \T_MUL_EQUAL,
+        \T_OR_EQUAL,
+        \T_PLUS_EQUAL,
+        \T_POW_EQUAL,
+        \T_RETURN,
+        \T_XOR_EQUAL,
+        \T_YIELD,
     ];
 
     private const TARGET_TOKENS = [
@@ -36,15 +36,15 @@ final class ClarifyingParenthesesAroundComparisonsFixer extends AbstractFixer
     ];
 
     private const COMPARISON_KINDS = [
-        T_BOOLEAN_AND,
-        T_BOOLEAN_OR,
-        T_IS_EQUAL,
-        T_IS_GREATER_OR_EQUAL,
-        T_IS_IDENTICAL,
-        T_IS_NOT_EQUAL,
-        T_IS_NOT_IDENTICAL,
-        T_IS_SMALLER_OR_EQUAL,
-        T_SPACESHIP,
+        \T_BOOLEAN_AND,
+        \T_BOOLEAN_OR,
+        \T_IS_EQUAL,
+        \T_IS_GREATER_OR_EQUAL,
+        \T_IS_IDENTICAL,
+        \T_IS_NOT_EQUAL,
+        \T_IS_NOT_IDENTICAL,
+        \T_IS_SMALLER_OR_EQUAL,
+        \T_SPACESHIP,
     ];
 
     private const COMPARISON_TOKENS = [
@@ -109,7 +109,7 @@ final class ClarifyingParenthesesAroundComparisonsFixer extends AbstractFixer
                 continue;
             }
 
-            $blockEndIndex = $tokens->getNextTokenOfKind($blockStartIndex, [';', [T_CLOSE_TAG]]);
+            $blockEndIndex = $tokens->getNextTokenOfKind($blockStartIndex, [';', [\T_CLOSE_TAG]]);
 
             if (null === $blockEndIndex
                 || !$this->containsAnyComparisonToken($tokens, $blockStartIndex, $blockEndIndex)

@@ -3,8 +3,9 @@
 declare(strict_types=1);
 
 use Hereldar\CodingStyle;
+use PhpCsFixer\Fixer\ConstantNotation\NativeConstantInvocationFixer;
 use PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer;
-use PhpCsFixer\Fixer\Import\GlobalNamespaceImportFixer;
+use PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return ECSConfig
@@ -13,8 +14,12 @@ return ECSConfig
         CodingStyle::PROJECTS,
     ])
     ->withConfiguredRule(
-        GlobalNamespaceImportFixer::class,
-        ['import_classes' => true, 'import_constants' => false, 'import_functions' => false]
+        NativeConstantInvocationFixer::class,
+        ['scope' => 'namespaced', 'strict' => true],
+    )
+    ->withConfiguredRule(
+        NativeFunctionInvocationFixer::class,
+        ['include' => ['@all'], 'scope' => 'namespaced', 'strict' => true],
     )
     ->withConfiguredRule(
         YodaStyleFixer::class,
