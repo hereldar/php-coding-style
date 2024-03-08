@@ -1,0 +1,17 @@
+fix := false
+
+ecs:
+ifeq ($(fix), true)
+	vendor/bin/ecs --fix --clear-cache --ansi
+else
+	vendor/bin/ecs --clear-cache --ansi
+endif
+
+phpstan:
+	vendor/bin/phpstan --ansi
+
+psalm:
+	vendor/bin/psalm --threads=4 --diff
+
+coding-standards: ecs
+code-quality: coding-standards phpstan psalm

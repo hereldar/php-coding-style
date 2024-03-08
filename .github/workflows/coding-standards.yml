@@ -1,4 +1,4 @@
-name: Code Style
+name: Coding Standards
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
   pull_request:
 
 jobs:
-  code-style:
-    name: Code Style - PHP ${{ matrix.php }} Ubuntu
+  ecs:
+    name: ECS - PHP ${{ matrix.php }} Ubuntu
 
     strategy:
       fail-fast: false
@@ -31,9 +31,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: json, dom, libxml, mbstring, xml, xmlwriter
-          style: xdebug
-          tools: php-coveralls/php-coveralls
+          extensions: json
+          coverage: none
 
       - name: Install dependencies
         uses: ramsey/composer-install@v2
@@ -42,6 +41,6 @@ jobs:
 
       - name: Run Easy Coding Standard
         run: |
-          php -d memory_limit=-1 -d zend.enable_gc=0 -d error_reporting=-1 vendor/bin/ecs check;
+          php -d memory_limit=-1 -d zend.enable_gc=0 -d error_reporting=-1 vendor/bin/ecs --ansi --no-progress-bar;
         env:
           PHP_VERSION: ${{ matrix.php }}

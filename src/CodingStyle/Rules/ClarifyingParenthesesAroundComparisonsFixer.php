@@ -88,10 +88,11 @@ final class ClarifyingParenthesesAroundComparisonsFixer extends AbstractFixer
     protected function applyFix(SplFileInfo $file, Tokens $tokens): void
     {
         /**
-         * @var int $blockStartIndex
+         * @var int $index
          * @var Token $token
          */
         foreach ($tokens as $index => $token) {
+            /** @phpstan-ignore-next-line */
             if (!$token->isGivenKind(self::TARGET_KINDS)
                 || $token->equalsAny(self::TARGET_TOKENS)) {
                 continue;
@@ -126,6 +127,7 @@ final class ClarifyingParenthesesAroundComparisonsFixer extends AbstractFixer
     {
         for ($i = $startIndex; $i < $endIndex; ++$i) {
             $token = $tokens[$i];
+            /** @phpstan-ignore-next-line */
             if ($token->isGivenKind(self::COMPARISON_KINDS)
                 || $token->equalsAny(self::COMPARISON_TOKENS)) {
                 return true;
