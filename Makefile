@@ -14,4 +14,4 @@ psalm:
 	vendor/bin/psalm --threads=4 --diff
 
 coding-standards: ecs
-code-quality: coding-standards phpstan psalm
+code-quality: phpstan psalm
