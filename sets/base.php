@@ -3,13 +3,13 @@
 declare(strict_types=1);
 
 use Hereldar\CodingStyle\Rules\ClarifyingParenthesesAroundComparisonsFixer;
+use Hereldar\CodingStyle\Rules\GlobalNamespaceImportFixer;
 use Hereldar\CodingStyle\Rules\MultilineWhitespaceBeforeDoubleColonFixer;
 use PhpCsFixer\Fixer\Basic\SingleLineEmptyBodyFixer;
 use PhpCsFixer\Fixer\ClassNotation\SelfStaticAccessorFixer;
 use PhpCsFixer\Fixer\Comment\MultilineCommentOpeningClosingFixer;
 use PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer;
 use PhpCsFixer\Fixer\ControlStructure\SimplifiedIfReturnFixer;
-use PhpCsFixer\Fixer\Import\GlobalNamespaceImportFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\CombineConsecutiveIssetsFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\CombineConsecutiveUnsetsFixer;
 use PhpCsFixer\Fixer\Operator\OperatorLinebreakFixer;
