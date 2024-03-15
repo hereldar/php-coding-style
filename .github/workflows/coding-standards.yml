@@ -2,9 +2,9 @@ name: Coding Standards
 
 on:
   push:
-    branches:
-      - main
   pull_request:
+  schedule:
+    - cron: '25 9 * * 4'
 
 jobs:
   ecs:
