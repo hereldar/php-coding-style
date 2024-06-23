@@ -9,6 +9,7 @@ use PhpCsFixer\Fixer\ClassNotation\SelfStaticAccessorFixer;
 use PhpCsFixer\Fixer\Comment\MultilineCommentOpeningClosingFixer;
 use PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer;
 use PhpCsFixer\Fixer\ControlStructure\SimplifiedIfReturnFixer;
+use PhpCsFixer\Fixer\FunctionNotation\SingleLineThrowFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\CombineConsecutiveIssetsFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\CombineConsecutiveUnsetsFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocOrderByValueFixer;
@@ -32,6 +33,9 @@ return ECSConfig
         symfony: true,
         symfonyRisky: true,
     )
+    ->withSkip([
+        SingleLineThrowFixer::class,
+    ])
     ->withRules([
         ArrayIndentationFixer::class,
         BlankLineAfterStrictTypesFixer::class,
